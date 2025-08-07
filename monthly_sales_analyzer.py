@@ -25,27 +25,51 @@ sales_data = [
 def total_sales_by_product(data, product_key):
     """Calculates the total sales of a specific product in 30 days."""
     pass
+    data= "day" in sales_data
+    total_a = sum(data["product_a"] for data in sales_data)
+    total_b = sum(data["product_b"] for data in sales_data)
+    total_c = sum(data["product_c"] for data in sales_data)
+
+    print("total product a:", total_a)
+    print("total product b:", total_b)
+    print("total product c:", total_c)
 
 
 def average_daily_sales(data, product_key):
     """Calculates the average daily sales of a specific product."""
     pass
+    data= "day" in sales_data
+    average_a = sum(data["product_a"] for data in sales_data)/ len(sales_data)
+    average_b = sum(data["product_b"] for data in sales_data)/ len(sales_data)
+    average_c = sum(data["product_c"] for data in sales_data)/ len(sales_data)
 
+    print("total average a:", average_a)
+    print("total average b:", average_b)
+    print("total average c:", average_c)
 
 def best_selling_day(data):
     """Finds the day with the highest total sales."""
     pass
+    best_day= max(data, key=lambda x: x["product_a"] + x["product_b"] + x["product_c"])
+    print("Best Selling Day", best_day)
 
 
 def days_above_threshold(data, product_key, threshold):
     """Counts how many days the sales of a product exceeded a given threshold."""
     pass
-
+    valor = sum (1 for day in data if day[product_key] > threshold)
+    print("Days Above Threshold", valor)
 
 def top_product(data):
     """Determines which product had the highest total sales in 30 days."""
     pass
-
+    data= "day" in sales_data
+    total_a = sum(data["product_a"] for data in sales_data)
+    total_b = sum(data["product_b"] for data in sales_data)
+    total_c = sum(data["product_c"] for data in sales_data)
+    product_HTS = max(total_a, total_b, total_c) 
+    top_product = product_HTS
+    print("Product with the Highest Total Sales2:", top_product)
 
 
 # Function tests
